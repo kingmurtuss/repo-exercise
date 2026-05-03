@@ -1,22 +1,11 @@
-# NexaTrade
+# AtlasWallet Demo
 
-NexaTrade is a fully interactive front-end crypto trading platform prototype with:
-- live-simulated market prices
-- instant buy/sell execution logic
-- real-time portfolio valuation and P/L
-- AI-style trading signal panel
-- modern responsive UI
+A single-page wallet-style web interface inspired by modern multi-chain crypto wallets.
 
 ## Run locally
 
-1. Open `index.html` directly in your browser, or
-2. Serve with a local server:
-   ```bash
-   python -m http.server 8080
-   ```
+Open `index.html` in your browser.
 
-Then open `http://localhost:8080`.
+## Note
 
-## Important
-
-This build runs entirely in-browser and uses simulated market data (paper trading behavior).
+This project is UI-only. It does **not** create real wallets, hold keys, or broadcast blockchain transactions.
