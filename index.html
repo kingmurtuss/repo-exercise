@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexaTrade — AI Crypto Trading Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="topbar container">
+    <div class="brand">Nexa<span>Trade</span></div>
+    <nav>
+      <a href="#markets">Markets</a>
+      <a href="#trade">Trade</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#ai">AI Signals</a>
+    </nav>
+    <button id="connectBtn" class="btn btn-primary">Connect</button>
+  </header>
+
+  <main class="container grid-layout">
+    <section class="panel hero">
+      <h1>Modern AI-first crypto trading.</h1>
+      <p>Execute spot trades, monitor live P/L, and receive AI market insights in one premium interface.</p>
+      <div class="hero-metrics">
+        <div><span>Total Equity</span><strong id="equity">$10,000.00</strong></div>
+        <div><span>Daily P/L</span><strong id="dailyPnL" class="up">+$0.00</strong></div>
+        <div><span>Open Positions</span><strong id="openCount">0</strong></div>
+      </div>
+    </section>
+
+    <section id="markets" class="panel market-list">
+      <h2>Markets</h2>
+      <div id="tickers"></div>
+    </section>
+
+    <section id="trade" class="panel trade-box">
+      <h2>Trade</h2>
+      <form id="tradeForm">
+        <label>Pair<select id="pair"></select></label>
+        <label>Side
+          <select id="side">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+          </select>
+        </label>
+        <label>Amount (USD)
+          <input type="number" id="amount" min="10" step="10" value="200" required />
+        </label>
+        <button class="btn btn-primary" type="submit">Execute Trade</button>
+      </form>
+      <p class="hint">Instant execution at displayed market price. No fees in this build.</p>
+    </section>
+
+    <section id="portfolio" class="panel portfolio">
+      <h2>Portfolio</h2>
+      <table>
+        <thead><tr><th>Asset</th><th>Qty</th><th>Avg Price</th><th>Value</th><th>P/L</th></tr></thead>
+        <tbody id="positions"></tbody>
+      </table>
+    </section>
+
+    <section id="ai" class="panel ai-panel">
+      <h2>AI Trade Assistant</h2>
+      <div id="aiSignal" class="signal">Analyzing market momentum...</div>
+      <button id="refreshAi" class="btn">Refresh Signal</button>
+      <ul>
+        <li>Trend analysis from price momentum.</li>
+        <li>Volatility warning for risk control.</li>
+        <li>Position sizing suggestion.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
