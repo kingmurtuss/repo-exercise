@@ -3,202 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atlas Wallet — Multi‑Chain Crypto Wallet</title>
+  <title>NexaTrade — AI Crypto Trading Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a1020;
-      --bg-soft: #111a32;
-      --card: #152041;
-      --line: #273560;
-      --text: #e8edff;
-      --muted: #9db0df;
-      --brand: #3b82f6;
-      --brand-2: #2dd4bf;
-      --good: #22c55e;
-      --warn: #f59e0b;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(1000px 500px at 10% -10%, #1e3a8a33, transparent), var(--bg);
-      color: var(--text);
-    }
-    .container { width: min(1100px, 92vw); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(10px);
-      background: #0a1020cc;
-      border-bottom: 1px solid #1d2a50;
-    }
-    .nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 0;
-    }
-    .logo { font-weight: 800; letter-spacing: .2px; }
-    .logo span { color: var(--brand-2); }
-    .btn {
-      border: 0; border-radius: 10px; padding: 10px 14px;
-      font-weight: 600; cursor: pointer;
-    }
-    .btn.primary { background: linear-gradient(90deg, var(--brand), #60a5fa); color: white; }
-    .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
-
-    .hero {
-      display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px;
-      padding: 56px 0 34px;
-    }
-    h1 { font-size: clamp(30px, 4vw, 54px); line-height: 1.05; margin: 0 0 18px; }
-    .lead { color: var(--muted); max-width: 58ch; }
-    .hero-card, .card {
-      background: linear-gradient(180deg, #192852, #121d3d);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 20px 60px #00000044;
-    }
-    .hero-card { padding: 22px; }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
-    .mini {
-      background: #0e1733; border: 1px solid #223261; border-radius: 12px; padding: 12px;
-    }
-    .mini small { color: var(--muted); display: block; margin-bottom: 4px; }
-
-    .section-title { margin: 26px 0 12px; font-size: 26px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .card { padding: 18px; }
-    .asset {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 0; border-bottom: 1px dashed #2b3f74;
-    }
-    .asset:last-child { border-bottom: 0; }
-    .badge { color: var(--good); font-size: 13px; }
-
-    .wallet-tools {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px;
-    }
-    .tool {
-      background: #0d1733; border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center;
-    }
-
-    form { display: grid; gap: 12px; }
-    input, select {
-      width: 100%; padding: 11px 12px; border-radius: 10px;
-      border: 1px solid #2e4179; background: #0a1430; color: var(--text);
-    }
-    .notice {
-      margin-top: 16px; padding: 12px; border-radius: 12px;
-      background: #1d1306; border: 1px solid #7c4d0a; color: #fcd9a6;
-      font-size: 14px;
-    }
-    footer { padding: 34px 0; color: var(--muted); font-size: 14px; }
-
-    @media (max-width: 920px) {
-      .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .wallet-tools { grid-template-columns: 1fr 1fr; }
-      .stats { grid-template-columns: 1fr 1fr 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">Atlas<span>Wallet</span></div>
-      <div>
-        <button class="btn ghost">Docs</button>
-        <button class="btn primary" id="connectBtn">Connect Wallet</button>
-      </div>
-    </div>
+  <div class="bg-glow"></div>
+  <header class="topbar container">
+    <div class="brand">Nexa<span>Trade</span></div>
+    <nav>
+      <a href="#markets">Markets</a>
+      <a href="#trade">Trade</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#ai">AI Signals</a>
+    </nav>
+    <button id="connectBtn" class="btn btn-primary">Connect</button>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <h1>One wallet for Bitcoin, Ethereum, Solana, and 100+ chains.</h1>
-        <p class="lead">AtlasWallet is a modern non-custodial wallet experience inspired by leading crypto wallets. Track balances, swap tokens, explore dApps, and send crypto securely from one place.</p>
-        <div class="wallet-tools">
-          <div class="tool">Buy</div>
-          <div class="tool">Send</div>
-          <div class="tool">Receive</div>
-          <div class="tool">Swap</div>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <small style="color:var(--muted)">Portfolio Value</small>
-        <h2 id="portfolioValue" style="margin:8px 0 16px">$27,834.14</h2>
-        <div class="stats">
-          <div class="mini"><small>24h</small><strong class="badge">+3.41%</strong></div>
-          <div class="mini"><small>Assets</small><strong>12</strong></div>
-          <div class="mini"><small>Networks</small><strong>9</strong></div>
-        </div>
+  <main class="container grid-layout">
+    <section class="panel hero">
+      <h1>Modern AI-first crypto trading.</h1>
+      <p>Execute spot trades, monitor live P/L, and receive AI market insights in one premium interface.</p>
+      <div class="hero-metrics">
+        <div><span>Total Equity</span><strong id="equity">$10,000.00</strong></div>
+        <div><span>Daily P/L</span><strong id="dailyPnL" class="up">+$0.00</strong></div>
+        <div><span>Open Positions</span><strong id="openCount">0</strong></div>
       </div>
     </section>
 
-    <section>
-      <h3 class="section-title">Top assets</h3>
-      <div class="grid">
-        <div class="card">
-          <div class="asset"><span>Bitcoin (BTC)</span><strong>$68,221</strong></div>
-          <div class="asset"><span>Ethereum (ETH)</span><strong>$3,421</strong></div>
-          <div class="asset"><span>Solana (SOL)</span><strong>$162</strong></div>
-          <div class="asset"><span>BNB (BNB)</span><strong>$612</strong></div>
-          <div class="asset"><span>USDT (TRC20)</span><strong>$1.00</strong></div>
-        </div>
+    <section id="markets" class="panel market-list">
+      <h2>Markets</h2>
+      <div id="tickers"></div>
+    </section>
 
-        <div class="card">
-          <h4 style="margin-top:0">Quick send</h4>
-          <form id="sendForm">
-            <select required>
-              <option value="">Select asset</option>
-              <option>BTC</option>
-              <option>ETH</option>
-              <option>SOL</option>
-              <option>USDT</option>
-            </select>
-            <input type="text" placeholder="Recipient address" required />
-            <input type="number" placeholder="Amount" step="any" required />
-            <button class="btn primary" type="submit">Review Transaction</button>
-          </form>
-        </div>
+    <section id="trade" class="panel trade-box">
+      <h2>Trade</h2>
+      <form id="tradeForm">
+        <label>Pair<select id="pair"></select></label>
+        <label>Side
+          <select id="side">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+          </select>
+        </label>
+        <label>Amount (USD)
+          <input type="number" id="amount" min="10" step="10" value="200" required />
+        </label>
+        <button class="btn btn-primary" type="submit">Execute Trade</button>
+      </form>
+      <p class="hint">Instant execution at displayed market price. No fees in this build.</p>
+    </section>
 
-        <div class="card">
-          <h4 style="margin-top:0">Security</h4>
-          <ul style="padding-left: 16px; color: var(--muted); line-height: 1.7">
-            <li>Biometric unlock</li>
-            <li>Encrypted local key storage</li>
-            <li>Seed phrase backup flow</li>
-            <li>Phishing domain warnings</li>
-            <li>Transaction simulation</li>
-          </ul>
-          <div class="notice">
-            Demo UI only — do not enter real seed phrases or private keys.
-          </div>
-        </div>
-      </div>
+    <section id="portfolio" class="panel portfolio">
+      <h2>Portfolio</h2>
+      <table>
+        <thead><tr><th>Asset</th><th>Qty</th><th>Avg Price</th><th>Value</th><th>P/L</th></tr></thead>
+        <tbody id="positions"></tbody>
+      </table>
+    </section>
+
+    <section id="ai" class="panel ai-panel">
+      <h2>AI Trade Assistant</h2>
+      <div id="aiSignal" class="signal">Analyzing market momentum...</div>
+      <button id="refreshAi" class="btn">Refresh Signal</button>
+      <ul>
+        <li>Trend analysis from price momentum.</li>
+        <li>Volatility warning for risk control.</li>
+        <li>Position sizing suggestion.</li>
+      </ul>
     </section>
   </main>
 
-  <footer>
-    <div class="container">© 2026 AtlasWallet Demo • Built as a front-end prototype.</div>
-  </footer>
-
-  <script>
-    const connectBtn = document.getElementById('connectBtn');
-    const sendForm = document.getElementById('sendForm');
-
-    connectBtn.addEventListener('click', () => {
-      connectBtn.textContent = 'Connected';
-      connectBtn.disabled = true;
-    });
-
-    sendForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Transaction review opened (demo). In production, this should call a secure signing flow.');
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
